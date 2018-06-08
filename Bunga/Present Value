@@ -1,0 +1,20 @@
+#KETERANGAN
+#PRESENT VALUE, Keterangan m=banyaknya kita bayar, i=bunga, t=tahun, A=Akumulasi
+#1=bunga tunggal, 2= bunga majemuk, dan 3= bunga kontinu
+
+pvalue<- function(num, A, i, t, m=TRUE)
+  switch(num, 
+         satu = {
+           kt = A/(1+i*t)
+           print(kt)
+         },
+         dua = {
+           km = A*(1+i/m)^(-m*t)
+           print(km)
+         },
+         tiga = {
+           kk = A*exp(-i*t)
+           print(kk)
+         }
+  )
+
