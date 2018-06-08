@@ -1,0 +1,39 @@
+valobligasi<-function(f,r,i,ttm,m){
+  t=ceiling((ttm*m)+1);
+  b=ttm*m-(floor(ttm*m));
+  k=i-b;
+  rb=r/m;
+  ib=i/m;
+  vb=1/(1+ib);
+  anb=(1-(vb^t))/ib;
+  {
+    Bt=(f*rb*anb)+(f*(vb^t))
+    
+  #THEORITICAL METHOD
+  Bf1=Bt*(1+ib)^k
+  frk1=f*rb*((1+ib)^k-1)/ib
+  Bm1=Bf1-frk1
+  cat("Harga method 1 =",Bm1,"\n")}
+  
+  #PRACTICAL METHOD
+  Bf2=Bt*(1+k*ib)
+  frk2=k*f*rb
+  Bm2=Bf2-frk2
+  cat("Harga method 2 =",Bm2,"\n")
+  
+  #SEMI THERITICAL METHOD
+  Bf3 = Bt*(1+ib)^k
+  frk3 = k*f*rb
+  Bm3 = Bf3-frk3
+  cat("Harga method 3 =",Bm3,"\n")
+  
+}
+#KETERANGAN
+#f = Nilai akumulasi
+#r = Tingkat kupon
+#i = Tingkat yield
+#ttm = Time to maturity
+#m = Banyak pemberian bunga dalam 1 tahun
+#t = Tahun
+#Bm = Harga obligasi pemilik baru
+#frk = Harga obligasi pemiliki lama
